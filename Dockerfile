@@ -24,6 +24,7 @@ RUN apt-get install -y --fix-missing \
     python3-numpy \
     python3-pandas \
     python3-pathlib2 \ 
+    python3-PIL \ 
 
     software-properties-common \
     zip \
