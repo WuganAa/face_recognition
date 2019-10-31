@@ -12,7 +12,7 @@ RUN apt-get install -y --fix-missing \
     curl \
     graphicsmagick \
     libgraphicsmagick1-dev \
-    libatlas-dev \
+    libatlas-base-dev \
     libavcodec-dev \
     libavformat-dev \
     libgtk2.0-dev \
@@ -23,8 +23,6 @@ RUN apt-get install -y --fix-missing \
     python3-dev \
     python3-numpy \
     python3-pandas \
-    python3-pathlib2 \ 
-    python3-PIL \ 
 
     software-properties-common \
     zip \
@@ -36,7 +34,7 @@ RUN apt-get install -y --fix-missing \
     libpng-dev \
     libtiff-dev \
     libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
     && apt-get clean && rm -rf /tmp/* /var/tmp/*
 
 RUN cd ~ && \
@@ -45,6 +43,8 @@ RUN cd ~ && \
     cd  dlib/ && \
     python3 setup.py install --yes USE_AVX_INSTRUCTIONS
 
+RUN pip3 install pathlib2 Pillow
+RUN pip3 install pandas numpy
 
 WORKDIR /
 ENV OPENCV_VERSION="4.1.1"
