@@ -44,7 +44,8 @@ RUN cd ~ && \
     python3 setup.py install --yes USE_AVX_INSTRUCTIONS
 
 RUN pip3 install pathlib2 Pillow pandas numpy matplotlib
-RUN pip2 install -U scikit-learn
+RUN pip3 install tensorflow keras h5py statistics
+RUN pip3 install -U scikit-learn
 
 WORKDIR /
 ENV OPENCV_VERSION="4.1.1"
